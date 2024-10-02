@@ -1,0 +1,361 @@
+Dr. Memory version 2.6.19800 build 0 built on Mar 23 2024 02:24:07
+Windows version: WinVer=105;Rel=2009;Build=19045;Edition=Professional
+Dr. Memory results for pid 7972: "snake_ai.exe"
+Application cmdline: "snake_ai.exe"
+Recorded 124 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin64\suppress-default.txt
+
+Error #1: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062fb40-0x000000000062fb48 8 byte(s)
+# 0 .text                                   [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 _pei386_runtime_relocator
+# 2 __tmainCRTStartup
+# 3 .l_start    
+# 4 KERNEL32.dll!BaseThreadInitThunk
+Note: @0:00:00.189 in thread 13460
+Note: 0x000000000062fb40 refers to 600 byte(s) beyond the top of the stack 0x000000000062fd98
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #2: UNINITIALIZED READ: reading 0x000000000062f3a4-0x000000000062f3a8 4 byte(s) within 0x000000000062f3a0-0x000000000062f3a8
+# 0 system call NtUserCreateWindowEx parameter value #14
+# 1 USER32.dll!VerNtUserCreateWindowEx
+# 2 USER32.dll!CreateWindowInternal
+# 3 USER32.dll!CreateWindowExA
+# 4 sfml-window-2.dll!sf::priv::WglContext::WglContext
+# 5 sfml-window-2.dll!sf::priv::GlContext::initResource
+# 6 sfml-window-2.dll!sf::Window::Window
+# 7 sfml-graphics-2.dll!sf::RenderWindow::RenderWindow
+# 8 main        
+Note: @0:00:00.326 in thread 13460
+
+Error #3: UNINITIALIZED READ: reading 0x000000000062f3a4-0x000000000062f3a8 4 byte(s) within 0x000000000062f3a0-0x000000000062f3a8
+# 0 system call NtUserCreateWindowEx parameter value #14
+# 1 USER32.dll!VerNtUserCreateWindowEx
+# 2 USER32.dll!CreateWindowInternal
+# 3 USER32.dll!CreateWindowExW
+# 4 sfml-window-2.dll!sf::priv::WindowImplWin32::WindowImplWin32
+# 5 sfml-window-2.dll!sf::priv::WindowImpl::create
+# 6 sfml-window-2.dll!sf::Window::create
+# 7 sfml-graphics-2.dll!sf::RenderWindow::RenderWindow
+# 8 main        
+Note: @0:00:53.434 in thread 13460
+
+Error #4: UNINITIALIZED READ: reading 0x000000000062f484-0x000000000062f488 4 byte(s) within 0x000000000062f478-0x000000000062f488
+# 0 system call NtUserTrackMouseEvent TRACKMOUSEEVENT post-dwFlags
+# 1 sfml-window-2.dll!sf::priv::WindowImplWin32::processEvent
+# 2 sfml-window-2.dll!sf::priv::WindowImplWin32::globalOnEvent
+# 3 USER32.dll!UserCallWinProcCheckWow
+# 4 USER32.dll!UserCallWinProcCheckWow
+# 5 USER32.dll!CallWindowProcW
+# 6 OPENGL32.dll!glPushClientAttrib                                           +0x1508f  (0x00007ffc543ef1f0 <OPENGL32.dll+0x3f1f0>)
+# 7 USER32.dll!UserCallWinProcCheckWow
+# 8 USER32.dll!UserCallWinProcCheckWow
+# 9 USER32.dll!DispatchMessageWorker
+#10 sfml-window-2.dll!sf::priv::WindowImplWin32::processEvents
+#11 sfml-window-2.dll!sf::priv::WindowImpl::popEvent
+#12 sfml-window-2.dll!sf::Window::pollEvent
+#13 Game::Event 
+#14 Game::run   
+#15 main        
+Note: @0:00:58.056 in thread 13460
+
+Error #5: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062e8b8-0x000000000062e8c0 8 byte(s)
+# 0 .text                         [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:146]
+# 1 DQNAgent::learn
+# 2 Game::Update
+# 3 Game::run   
+# 4 main        
+Note: @0:00:58.426 in thread 13460
+Note: 0x000000000062e8b8 refers to 4072 byte(s) beyond the top of the stack 0x000000000062f8a0
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #6: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062e410-0x000000000062e418 8 byte(s)
+# 0 .text                         [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 DQNAgent::learn
+# 2 Game::Update
+# 3 Game::run   
+# 4 main        
+Note: @0:00:58.434 in thread 13460
+Note: 0x000000000062e410 refers to 5264 byte(s) beyond the top of the stack 0x000000000062f8a0
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #7: UNADDRESSABLE ACCESS beyond heap bounds: reading 0x000000000b6d3467-0x000000000b6d3468 1 byte(s) within 0x000000000b6d3460-0x000000000b6d3468
+# 0 igxelpicd64.dll!RegisterProcTableCallback+0x6fe880 (0x00007ffc243d6210 <igxelpicd64.dll+0xad6210>)
+# 1 igxelpicd64.dll!RegisterProcTableCallback+0x690aa2 (0x00007ffc24368433 <igxelpicd64.dll+0xa68433>)
+# 2 igxelpicd64.dll!RegisterProcTableCallback+0x6914fc (0x00007ffc24368e8d <igxelpicd64.dll+0xa68e8d>)
+# 3 reg_shadow_addr                         [D:\a\drmemory\drmemory\drmemory\shadow.c:1788]
+# 4 igxelpicd64.dll!RegisterProcTableCallback+0x62e81  (0x00007ffc23d3a812 <igxelpicd64.dll+0x43a812>)
+# 5 igxelpicd64.dll!RegisterProcTableCallback+0x38050  (0x00007ffc23d0f9e1 <igxelpicd64.dll+0x40f9e1>)
+# 6 igxelpicd64.dll!RegisterProcTableCallback+0x38630  (0x00007ffc23d0ffc1 <igxelpicd64.dll+0x40ffc1>)
+# 7 igxelpicd64.dll!DrvValidateVersion     +0x5a41f  (0x00007ffc23c5e400 <igxelpicd64.dll+0x35e400>)
+# 8 igxelpicd64.dll!DrvValidateVersion     +0x58315  (0x00007ffc23c5c2f6 <igxelpicd64.dll+0x35c2f6>)
+# 9 igxelpicd64.dll!?                      +0x0      (0x00007ffc23bcf66a <igxelpicd64.dll+0x2cf66a>)
+#10 sfml-graphics-2.dll!sf::RenderTarget::draw
+#11 sfml-graphics-2.dll!sf::VertexArray::draw
+#12 sfml-graphics-2.dll!sf::RenderTarget::draw
+#13 sfml-graphics-2.dll!sf::Shape::draw    
+#14 sfml-graphics-2.dll!sf::RenderTarget::draw
+#15 Grid::Draw  
+#16 Game::Display
+#17 Game::run   
+#18 main        
+Note: @0:01:08.847 in thread 13460
+Note: next higher malloc: 0x000000000b6d34a0-0x000000000b6d3510
+Note: refers to 0 byte(s) beyond last valid byte in prior malloc
+Note: prev lower malloc:  0x000000000b6d3450-0x000000000b6d3467
+Note: instruction: mov    (%rcx) -> %rax
+
+Error #8: UNADDRESSABLE ACCESS beyond heap bounds: reading 0x0000000003465a76-0x0000000003465a78 2 byte(s) within 0x0000000003465a70-0x0000000003465a78
+# 0 igxelpicd64.dll!RegisterProcTableCallback+0x6fe880 (0x00007ffc243d6210 <igxelpicd64.dll+0xad6210>)
+# 1 igxelpicd64.dll!RegisterProcTableCallback+0x690abf (0x00007ffc24368450 <igxelpicd64.dll+0xa68450>)
+# 2 igxelpicd64.dll!RegisterProcTableCallback+0x6914fc (0x00007ffc24368e8d <igxelpicd64.dll+0xa68e8d>)
+# 3 reg_shadow_addr                         [D:\a\drmemory\drmemory\drmemory\shadow.c:1788]
+# 4 igxelpicd64.dll!RegisterProcTableCallback+0x62e81  (0x00007ffc23d3a812 <igxelpicd64.dll+0x43a812>)
+# 5 igxelpicd64.dll!RegisterProcTableCallback+0x38050  (0x00007ffc23d0f9e1 <igxelpicd64.dll+0x40f9e1>)
+# 6 igxelpicd64.dll!RegisterProcTableCallback+0x38630  (0x00007ffc23d0ffc1 <igxelpicd64.dll+0x40ffc1>)
+# 7 igxelpicd64.dll!DrvValidateVersion     +0x5a41f  (0x00007ffc23c5e400 <igxelpicd64.dll+0x35e400>)
+# 8 igxelpicd64.dll!DrvValidateVersion     +0x58315  (0x00007ffc23c5c2f6 <igxelpicd64.dll+0x35c2f6>)
+# 9 igxelpicd64.dll!?                      +0x0      (0x00007ffc23bcf66a <igxelpicd64.dll+0x2cf66a>)
+#10 sfml-graphics-2.dll!sf::RenderTarget::draw
+#11 sfml-graphics-2.dll!sf::VertexArray::draw
+#12 sfml-graphics-2.dll!sf::RenderTarget::draw
+#13 sfml-graphics-2.dll!sf::Shape::draw    
+#14 sfml-graphics-2.dll!sf::RenderTarget::draw
+#15 Grid::Draw  
+#16 Game::Display
+#17 Game::run   
+#18 main        
+Note: @0:01:08.863 in thread 13460
+Note: next higher malloc: 0x0000000003465ab0-0x0000000003465ad8
+Note: refers to 0 byte(s) beyond last valid byte in prior malloc
+Note: prev lower malloc:  0x0000000003465a60-0x0000000003465a76
+Note: instruction: mov    (%rcx) -> %rax
+
+Error #9: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062f300-0x000000000062f308 8 byte(s)
+# 0 .text                                   [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 __gnu_cxx::__to_xstring<>               [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 2 std::__cxx11::to_string                 [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 3 Game::Draw  
+# 4 Game::Display
+# 5 Game::run   
+# 6 main        
+Note: @0:01:10.566 in thread 13460
+Note: 0x000000000062f300 refers to 8 byte(s) beyond the top of the stack 0x000000000062f308
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #10: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062f100-0x000000000062f108 8 byte(s)
+# 0 .text                                   [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 __pformat_int.isra.0                    [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 2 __mingw_pformat                         [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 3 __mingw_vsnprintf                       [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 4 vsnprintf   
+# 5 __gnu_cxx::__to_xstring<>               [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 6 std::__cxx11::to_string                 [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 7 Game::Draw  
+# 8 Game::Display
+# 9 Game::run   
+#10 main        
+Note: @0:01:10.574 in thread 13460
+Note: 0x000000000062f100 refers to 24 byte(s) beyond the top of the stack 0x000000000062f118
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #11: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062f300-0x000000000062f308 8 byte(s)
+# 0 .text                                   [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 __gnu_cxx::__to_xstring<>               [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 2 std::__cxx11::to_string                 [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 3 Game::Draw  
+# 4 Game::Display
+# 5 Game::run   
+# 6 main        
+Note: @0:01:10.631 in thread 13460
+Note: 0x000000000062f300 refers to 8 byte(s) beyond the top of the stack 0x000000000062f308
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #12: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062f100-0x000000000062f108 8 byte(s)
+# 0 .text                                   [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 __pformat_int.isra.0                    [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 2 __mingw_pformat                         [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 3 __mingw_vsnprintf                       [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 4 vsnprintf   
+# 5 __gnu_cxx::__to_xstring<>               [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 6 std::__cxx11::to_string                 [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 7 Game::Draw  
+# 8 Game::Display
+# 9 Game::run   
+#10 main        
+Note: @0:01:10.631 in thread 13460
+Note: 0x000000000062f100 refers to 24 byte(s) beyond the top of the stack 0x000000000062f118
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #13: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062f300-0x000000000062f308 8 byte(s)
+# 0 .text                                   [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 __gnu_cxx::__to_xstring<>               [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 2 std::__cxx11::to_string                 [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 3 Game::Draw  
+# 4 Game::Display
+# 5 Game::run   
+# 6 main        
+Note: @0:01:10.631 in thread 13460
+Note: 0x000000000062f300 refers to 8 byte(s) beyond the top of the stack 0x000000000062f308
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #14: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062f100-0x000000000062f108 8 byte(s)
+# 0 .text                                   [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 __pformat_int.isra.0                    [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 2 __mingw_pformat                         [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 3 __mingw_vsnprintf                       [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 4 vsnprintf   
+# 5 __gnu_cxx::__to_xstring<>               [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 6 std::__cxx11::to_string                 [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:158]
+# 7 Game::Draw  
+# 8 Game::Display
+# 9 Game::run   
+#10 main        
+Note: @0:01:10.631 in thread 13460
+Note: 0x000000000062f100 refers to 24 byte(s) beyond the top of the stack 0x000000000062f118
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #15: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062e868-0x000000000062e870 8 byte(s)
+# 0 .text                          [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:146]
+# 1 DQNAgent::learn
+# 2 Game::Reset_Game
+# 3 Game::Update
+# 4 Game::run   
+# 5 main        
+Note: @0:01:39.477 in thread 13460
+Note: 0x000000000062e868 refers to 4072 byte(s) beyond the top of the stack 0x000000000062f850
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #16: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062e3c0-0x000000000062e3c8 8 byte(s)
+# 0 .text                          [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 DQNAgent::learn
+# 2 Game::Reset_Game
+# 3 Game::Update
+# 4 Game::run   
+# 5 main        
+Note: @0:01:39.477 in thread 13460
+Note: 0x000000000062e3c0 refers to 5264 byte(s) beyond the top of the stack 0x000000000062f850
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #17: INVALID HEAP ARGUMENT: allocated with operator new[], freed with operator delete
+# 0 replace_operator_delete_nothrow               [D:\a\drmemory\drmemory\common\alloc_replace.c:2978]
+# 1 Game::Update
+# 2 Game::run   
+# 3 main        
+Note: @0:01:39.485 in thread 13460
+Note: memory was allocated here:
+Note: # 0 replace_operator_new_array               [D:\a\drmemory\drmemory\common\alloc_replace.c:2932]
+Note: # 1 Game::Game  
+Note: # 2 main        
+
+Error #18: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062e868-0x000000000062e870 8 byte(s)
+# 0 .text                          [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:146]
+# 1 DQNAgent::learn
+# 2 Game::Reset_Game
+# 3 Game::Update
+# 4 Game::run   
+# 5 main        
+Note: @0:02:59.177 in thread 13460
+Note: 0x000000000062e868 refers to 4072 byte(s) beyond the top of the stack 0x000000000062f850
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #19: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000000062e3c0-0x000000000062e3c8 8 byte(s)
+# 0 .text                          [../../../../../src/gcc-7.3.0/libgcc/config/i386/cygwin.S:152]
+# 1 DQNAgent::learn
+# 2 Game::Reset_Game
+# 3 Game::Update
+# 4 Game::run   
+# 5 main        
+Note: @0:02:59.177 in thread 13460
+Note: 0x000000000062e3c0 refers to 5264 byte(s) beyond the top of the stack 0x000000000062f850
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #20: UNINITIALIZED READ: reading 0x000000000062f494-0x000000000062f498 4 byte(s) within 0x000000000062f488-0x000000000062f498
+# 0 system call NtUserTrackMouseEvent TRACKMOUSEEVENT post-dwFlags
+# 1 sfml-window-2.dll!sf::priv::WindowImplWin32::processEvent
+# 2 sfml-window-2.dll!sf::priv::WindowImplWin32::globalOnEvent
+# 3 USER32.dll!UserCallWinProcCheckWow
+# 4 USER32.dll!UserCallWinProcCheckWow
+# 5 USER32.dll!CallWindowProcW
+# 6 OPENGL32.dll!glPushClientAttrib                                           +0x1508f  (0x00007ffc543ef1f0 <OPENGL32.dll+0x3f1f0>)
+# 7 USER32.dll!UserCallWinProcCheckWow
+# 8 USER32.dll!UserCallWinProcCheckWow
+# 9 USER32.dll!DispatchClientMessage
+#10 USER32.dll!_fnDWORD  
+#11 sfml-window-2.dll!sf::priv::WindowImplWin32::~WindowImplWin32
+#12 sfml-window-2.dll!sf::Window::close
+#13 Game::Event 
+#14 Game::run   
+#15 main        
+Note: @0:33:20.942 in thread 13460
+
+Error #21: INVALID HEAP ARGUMENT: allocated with operator new[], freed with operator delete
+# 0 replace_operator_delete_nothrow               [D:\a\drmemory\drmemory\common\alloc_replace.c:2978]
+# 1 Game::~Game 
+# 2 main        
+Note: @0:33:23.375 in thread 13460
+Note: memory was allocated here:
+Note: # 0 replace_operator_new_array               [D:\a\drmemory\drmemory\common\alloc_replace.c:2932]
+Note: # 1 Game::Update
+Note: # 2 Game::run   
+Note: # 3 main        
+
+Error #22: LEAK 72 direct bytes 0x000000000332c4b0-0x000000000332c4f8 + 240 indirect bytes
+# 0 replace_RtlAllocateHeap                                  [D:\a\drmemory\drmemory\common\alloc_replace.c:3772]
+# 1 SECHOST.dll!I_ScRegisterDeviceNotification              +0x8f     (0x00007ffc8969bb70 <SECHOST.dll+0xbb70>)
+# 2 USER32.dll!RegisterDeviceNotificationWorker
+# 3 USER32.dll!RegisterDeviceNotificationA
+# 4 sfml-window-2.dll!sf::priv::WindowImplWin32::WindowImplWin32
+# 5 sfml-window-2.dll!sf::priv::WindowImpl::create
+# 6 sfml-window-2.dll!sf::Window::create
+# 7 sfml-graphics-2.dll!sf::RenderWindow::RenderWindow
+# 8 main        
+
+Error #23: POSSIBLE LEAK 30 direct bytes 0x00000000036001c0-0x00000000036001de + 0 indirect bytes
+# 0 replace_malloc                    [D:\a\drmemory\drmemory\common\alloc_replace.c:2580]
+# 1 msvcrt.dll!realloc               +0x193    (0x00007ffc89059f44 <msvcrt.dll+0x19f44>)
+# 2 msvcrt.dll!unlock                +0x40c    (0x00007ffc8907b68d <msvcrt.dll+0x3b68d>)
+# 3 msvcrt.dll!_getmainargs          +0x30     (0x00007ffc89047a01 <msvcrt.dll+0x7a01>)
+# 4 pre_cpp_init
+# 5 msvcrt.dll!initterm              +0x42     (0x00007ffc8907a553 <msvcrt.dll+0x3a553>)
+# 6 __tmainCRTStartup
+# 7 .l_start    
+# 8 KERNEL32.dll!BaseThreadInitThunk
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+	Error #   1:      2
+	Error #   4:      5
+	Error #   5:   1520
+	Error #   6:   1520
+	Error #   9:   1520
+	Error #  10:   1520
+	Error #  11:   1520
+	Error #  12:   1520
+	Error #  13:   1520
+	Error #  14:   1520
+	Error #  15:    136
+	Error #  16:    136
+	Error #  17:     68
+	Error #  18:      4
+	Error #  19:      4
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+     15 unique, 12444 total unaddressable access(es)
+      4 unique,     8 total uninitialized access(es)
+      2 unique,    69 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      1 unique,     1 total,    312 byte(s) of leak(s)
+      1 unique,     1 total,     30 byte(s) of possible leak(s)
+ERRORS IGNORED:
+    283 potential error(s) (suspected false positives)
+         (details: C:\Users\Noé\AppData\Roaming\Dr. Memory\DrMemory-snake_ai.exe.7972.000\potential_errors.txt)
+     28 potential leak(s) (suspected false positives)
+         (details: C:\Users\Noé\AppData\Roaming\Dr. Memory\DrMemory-snake_ai.exe.7972.000\potential_errors.txt)
+    748 unique,  1326 total, 4432912 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\Noé\AppData\Roaming\Dr. Memory\DrMemory-snake_ai.exe.7972.000\results.txt
