@@ -7,14 +7,14 @@ DEBUGFLAG = -ggdb
 OPTIMISATION = -O0
 
 TARGET = bin/snake.exe
-SRCS =
+SRCS = src\main.cpp src\game.cpp src\grid.cpp src\apple.cpp src\snake.cpp
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CXX) $(OBJS) $(DEBUGFLAG) $(OPTIMISATION) -o $(TARGET) $(LDFLAGS)
+	$(CXX) $(OBJS) -o $(TARGET) $(LDFLAGS) $(RELEASEFLAGS)
 
 $(OBJ_DIR)/%.o: src/%.cpp
 	$(CXX) $(CXXFLAGS) -c $(INCLDFLAGS) $< -o $@

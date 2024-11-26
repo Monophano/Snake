@@ -3,15 +3,19 @@
 
 int main()
 {
-    int map_hauteur = 30;
-    int map_largeur = 30;
-    float map_cell_size = 10.0f;
+    // paramètres de la fenetre
+    int map_hauteur = 20;
+    int map_largeur = 20;
+    float map_cell_size = 20.0f;
+
+    // instanciation de la fenetre
     sf::RenderWindow window(sf::VideoMode(map_largeur * map_cell_size, map_hauteur * map_cell_size), "Snake");
-    window.setFramerateLimit(5);
+    window.setFramerateLimit(7);
     sf::Event event;
 
     Game *game = new Game(map_largeur, map_hauteur, map_cell_size);
 
+    // game loop
     while (window.isOpen())
     {
         while (window.pollEvent(event))
@@ -29,19 +33,32 @@ int main()
                             break;
 
                         case sf::Keyboard::Up:
-                            game->set_snake_direction(haut);
+                            if (game->get_snake_direction() != bas)
+                                game->set_snake_direction(haut);
                             break;
 
                         case sf::Keyboard::Down:
-                            game->set_snake_direction(bas);
+                            if (game->get_snake_direction() != haut)
+                                game->set_snake_direction(bas);
                             break;
 
                         case sf::Keyboard::Left:
-                            game->set_snake_direction(gauche);
+                            if (game->get_snake_direction() != droite)
+                                game->set_snake_direction(gauche);
                             break;
 
                         case sf::Keyboard::Right:
-                            game->set_snake_direction(droite);
+                            if (game->get_snake_direction() != gauche)
+                                game->set_snake_direction(droite);
+                            break;
+
+                        case sf::Keyboard::Space:
+                            // Si snake mort et touche espace pressé, on relance le jeu
+                            if (!game->get_instanced_snake()->is_alive())
+                            {
+                                delete game;
+                                game = new Game(map_largeur, map_hauteur, map_cell_size);
+                            }
                             break;
 
                         default:
@@ -53,11 +70,31 @@ int main()
                     break;
             }
 
-        game->update();
+        // si le serpent est en vie, on update la logique de jeu
+        if (game->get_instanced_snake()->is_alive())
+            game->update();
 
         window.clear();
         game->display(window);
+
+        // si le serpent est mort, on dessine l'écran de fin
+        if (!game->get_instanced_snake()->is_alive())
+        {
+            sf::Font font;
+            font.loadFromFile("./res/font/LiberationSans-Regular.ttf");
+
+            sf::Text game_over("Game over", font, 30);
+            game_over.setPosition(sf::Vector2f(((map_largeur*map_cell_size)/2)-60,((map_hauteur*map_cell_size)/2)-40));
+
+            sf::Text retry("Press `space` to retry.", font, 20);
+            retry.setPosition(sf::Vector2f(((map_largeur*map_cell_size)/2)-85,((map_hauteur*map_cell_size)/2)));
+
+            window.draw(game_over);
+            window.draw(retry);
+        }
+
         window.display();
+
     }
 
     delete game;

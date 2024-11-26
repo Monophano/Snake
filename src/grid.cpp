@@ -33,6 +33,7 @@ void Grid::add_to_grid(Position pos, Tilemap value)
 
 Tilemap Grid::get_case_value(Position pos)
 {
+    // on vérifie qu'on a pas un index out of range, si non, on renvoie la valeur à la position indiqué, si oui, on renvoie une erreur
     if ((pos.x >= 0 && pos.x < this->largeur) && (pos.y >= 0 && pos.y < this->hauteur))
         return this->map[pos.y][pos.x];
     return erreur;

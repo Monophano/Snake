@@ -4,6 +4,7 @@
 #include "apple.hpp"
 #include "snake.hpp"
 #include <SFML/Graphics.hpp>
+#include <cstring>
 
 /// @brief Classe permettant de gérer la logique du jeu snake, doit être utilisé avec un pointeur
 class Game
@@ -24,9 +25,13 @@ class Game
         /// @param window Fenêtre SFML sur laquelle dessiner le jeu
         void display(sf::RenderWindow &window);
 
-        /// @brief Accesseur de l'instance courante du snake
+        /// @brief Accesseur de l'instance courante du snake, réinstancie si non instancié
         /// @return Instance courante du snake
-        Snake get_instanced_snake();
+        Snake* get_instanced_snake();
+
+        /// @brief Accesseur de la direction du snake
+        /// @return Direction du snake
+        Direction get_snake_direction();
 
         /// @brief Mutateur de la direction du snake
         /// @param dir nouvelle direction du snake
@@ -35,7 +40,7 @@ class Game
     private:
         Grid *i_grid;
         Apple *i_apple;
-        Snake i_snake;
+        Snake *i_snake;
 
         int grid_hauteur;
         int grid_largeur;
