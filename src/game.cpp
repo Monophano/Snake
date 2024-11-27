@@ -7,8 +7,8 @@ Game::Game(int largeur, int hauteur, float cell_size)
     this->grid_cell_size = cell_size;
     this->score = 0;
     this->i_grid = new Grid(largeur, hauteur, cell_size);
-    this->i_apple = new Apple(largeur, hauteur);
     this->i_snake = new Snake(largeur, hauteur);
+    this->i_apple = new Apple(largeur, hauteur, this->i_snake->get_pos());
 }
 
 Game::~Game()
@@ -41,7 +41,7 @@ void Game::update()
     if (this->i_grid->get_case_value(this->i_snake->get_pos()[0]) == apple)
     {
         delete this->i_apple;
-        this->i_apple = new Apple(this->grid_largeur, this->grid_hauteur);
+        this->i_apple = new Apple(this->grid_largeur, this->grid_hauteur, this->i_snake->get_pos());
         this->score++;
         this->i_snake->add_size();
     }
