@@ -52,6 +52,45 @@ void Game::display(sf::RenderWindow &window)
     // affichage de la map
     this->i_grid->display(window);
 
+    // affichage des yeux du serpent
+    sf::CircleShape oeuil(5);
+    oeuil.setFillColor(sf::Color::Black);
+
+    switch (this->direction)
+    {
+        case haut:
+            oeuil.setPosition(sf::Vector2f(this->i_snake->get_pos()[0].x * this->grid_cell_size + 3, (this->i_snake->get_pos()[0].y * this->grid_cell_size) + 30));
+            window.draw(oeuil);
+
+            oeuil.setPosition(sf::Vector2f((this->i_snake->get_pos()[0].x * this->grid_cell_size) + this->grid_cell_size - 13, (this->i_snake->get_pos()[0].y * this->grid_cell_size) + 30));
+            window.draw(oeuil);
+            break;
+
+        case bas:
+            oeuil.setPosition(sf::Vector2f(this->i_snake->get_pos()[0].x * this->grid_cell_size + 3, (this->i_snake->get_pos()[0].y * this->grid_cell_size)-10));
+            window.draw(oeuil);
+
+            oeuil.setPosition(sf::Vector2f((this->i_snake->get_pos()[0].x * this->grid_cell_size) + this->grid_cell_size - 13, (this->i_snake->get_pos()[0].y * this->grid_cell_size)-10));
+            window.draw(oeuil);
+            break;
+
+        case droite:
+            oeuil.setPosition(sf::Vector2f((this->i_snake->get_pos()[0].x * this->grid_cell_size) - 10, (this->i_snake->get_pos()[0].y * this->grid_cell_size) + 3));
+            window.draw(oeuil);
+
+            oeuil.setPosition(sf::Vector2f((this->i_snake->get_pos()[0].x * this->grid_cell_size) - 10, (this->i_snake->get_pos()[0].y * this->grid_cell_size) + this->grid_cell_size - 13));
+            window.draw(oeuil);
+            break;
+
+        case gauche:
+            oeuil.setPosition(sf::Vector2f((this->i_snake->get_pos()[0].x * this->grid_cell_size) + this->grid_cell_size, (this->i_snake->get_pos()[0].y * this->grid_cell_size) + 3));
+            window.draw(oeuil);
+
+            oeuil.setPosition(sf::Vector2f((this->i_snake->get_pos()[0].x * this->grid_cell_size) + this->grid_cell_size, (this->i_snake->get_pos()[0].y * this->grid_cell_size) + this->grid_cell_size - 13));
+            window.draw(oeuil);
+            break;
+    }
+
     // affichage du HUD
     sf::Font font;
     font.loadFromFile("./res/font/LiberationSans-Regular.ttf");
