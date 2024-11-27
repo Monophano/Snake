@@ -6,12 +6,12 @@ int main()
     // paramètres de la fenetre
     int map_hauteur = 20;
     int map_largeur = 20;
-    float map_cell_size = 20.0f;
+    float map_cell_size = 30.0f;
 
     // instanciation de la fenetre
     sf::RenderWindow window(sf::VideoMode(map_largeur * map_cell_size, map_hauteur * map_cell_size), "Snake");
-    window.setFramerateLimit(7);
     sf::Event event;
+    window.setFramerateLimit(7);
 
     Game *game = new Game(map_largeur, map_hauteur, map_cell_size);
 

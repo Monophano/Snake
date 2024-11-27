@@ -53,29 +53,30 @@ void Snake::deplacer(Direction direction)
 void Snake::add_size()
 {
     Position new_pos;
-    new_pos.x = this->pos[0].x;
-    new_pos.y = this->pos[0].y;
+    int pos_size = this->pos.size();
+    new_pos.x = this->pos[pos_size-1].x;
+    new_pos.y = this->pos[pos_size-1].y;
 
     switch (this->last_direction)
     {
         case haut:
-            new_pos.y--;
-            break;
-
-        case bas:
             new_pos.y++;
             break;
 
+        case bas:
+            new_pos.y--;
+            break;
+
         case gauche:
-            new_pos.x--;
+            new_pos.x++;
             break;
 
         case droite:
-            new_pos.x++;
+            new_pos.x--;
             break;
     }
 
-    this->pos.insert(this->pos.begin(), new_pos);
+    this->pos.push_back(new_pos);
 }
 
 bool Snake::is_alive()
