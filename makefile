@@ -7,7 +7,7 @@ DEBUGFLAG = -ggdb
 OPTIMISATION = -O0
 
 TARGET = bin/snake.exe
-SRCS = src\main.cpp src\game.cpp src\grid.cpp src\apple.cpp src\snake.cpp
+SRCS = src\main.cpp src\game.cpp src\grid.cpp src\apple.cpp src\snake.cpp src\file.cpp
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 

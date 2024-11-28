@@ -9,6 +9,7 @@ Game::Game(int largeur, int hauteur, float cell_size)
     this->i_grid = new Grid(largeur, hauteur, cell_size);
     this->i_snake = new Snake(largeur, hauteur);
     this->i_apple = new Apple(largeur, hauteur, this->i_snake->get_pos());
+    this->i_file = new File("res/best_score.txt");
 }
 
 Game::~Game()
@@ -21,6 +22,9 @@ Game::~Game()
 
     if (this->i_snake != nullptr)
         delete this->i_snake;
+
+    if (this->i_file != nullptr)
+        delete this->i_file;
 }
 
 void Game::update()
@@ -45,6 +49,12 @@ void Game::update()
         this->score++;
         this->i_snake->add_size();
     }
+
+    // si le serpent est mort, on vérifie si le score actuelle est le meilleur
+    // si oui, on l'écrit dans le fichier, sinon on ne fait rien
+    if (!this->i_snake->is_alive())
+        if (this->score > (std::stoi)(this->i_file->get_data()))
+            this->i_file->set_data(std::to_string(this->score));
 }
 
 void Game::display(sf::RenderWindow &window)
@@ -99,6 +109,11 @@ void Game::display(sf::RenderWindow &window)
     txt_score.setPosition(sf::Vector2f(10, 0));
 
     window.draw(txt_score);
+
+    sf::Text txt_best_core("Best score : " + this->i_file->get_data(), font, 30);
+    txt_best_core.setPosition(sf::Vector2f(10, 40));
+
+    window.draw(txt_best_core);
 }
 
 Snake* Game::get_instanced_snake()

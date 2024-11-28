@@ -3,6 +3,7 @@
 #include "grid.hpp"
 #include "apple.hpp"
 #include "snake.hpp"
+#include "file.hpp"
 #include <SFML/Graphics.hpp>
 #include <cstring>
 
@@ -41,6 +42,7 @@ class Game
         Grid *i_grid;
         Apple *i_apple;
         Snake *i_snake;
+        File *i_file;
 
         int grid_hauteur;
         int grid_largeur;
