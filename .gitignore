@@ -2,5 +2,5 @@ bin
 obj
 makefile
 .vscode
-lib
-include
+./lib
+./include
